@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row left">
+  {% for id, paths in idsImages.items() %}
+    <div class="large-4 columns">
+      {{ "Camera " + id|string }}
+      <ul class="clearing-thumbs clearing-feature" data-clearing>
+      {% for path in paths %}
+        {% set url = url_for("images", image=path) %}
+        {% if loop.index == 1 %}
+          <li class="clearing-featured-img imagePacked2"><a class='th' href='{{ url }}'><img class="imagePacked2" src='{{ url }}'></a></li>
+        {% else %}
+          <li><a href='{{ url }}'><img src='{{ url }}'></a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+  <div class="large-4 columns">
+    <table>
+      <thead>
+        <tr>
+          <th width="40">Sensor</th>
+          <th width="80">Datetime</th>
+          <th width="60">Temperature</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for sensor, datetime, temp in dataSen %}
+        <tr>
+          <td>{{ sensor   }}</td>
+          <td>{{ datetime }}</td>
+          <td>{{ temp     }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% block bottonContent %}{% endblock %}
+
+{% endblock %}

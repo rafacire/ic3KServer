@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icserver.css') }}">
+    <script src="/static/js/vendor/modernizr.js"></script>
+    <title>{% block title %}ICServer{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">ICServer</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="{{ url_for('historic') }}">Historic</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div id="content" style='padding: 10px;'>{% block content %}{% endblock %}</div>
+    <script src="/static/js/vendor/jquery.js"></script>
+    <script src="/static/js/vendor/fastclick.js"></script>
+<script src="{{ url_for('static',filename='js/foundation.min.js') }}"></script>
+    <script>
+      $(document).foundation();
+    </script> 
+  </body>
+</html>

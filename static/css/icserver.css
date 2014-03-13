@@ -1,0 +1,12 @@
+.imagePacked {
+  height: 300px;
+  width: 400px;
+  background: #eeeeee;
+  border: solid 1px #c6c6c6;
+}
+.imagePacked2 {
+  max-height: 380px;
+  width: 300px;
+  background: #eeeeee;
+  border: solid 1px #c6c6c6;
+}
